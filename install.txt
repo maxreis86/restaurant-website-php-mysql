@@ -1,0 +1,31 @@
+sudo yum install git
+git clone https://github.com/maxreis86/restaurant-website-php-mysql.git
+
+which amazon-linux-extras
+sudo amazon-linux-extras | grep php
+sudo amazon-linux-extras enable php8.0
+sudo yum clean metadata
+sudo yum install php-cli php-pdo php-fpm php-json php-mysqlnd
+php -v
+
+sudo yum install mysql
+
+cd restaurant-website-php-mysql
+vi connect.php
+cp connect.php admin/
+
+mysql -h restaurant-website.c99g50znepkh.us-east-1.rds.amazonaws.com -u admin -pJH667ceg#
+use restaurant_website;
+source restaurant-website.sql;
+
+sudo yum install httpd
+
+sudo cp -R * /var/www/html
+sudo systemctl restart httpd
+
+Home page
+http://54.210.231.179/index.php
+Admin Login Page: 
+http://13.57.221.87/admin/index.php
+Username: jairi
+Password: 123456789
